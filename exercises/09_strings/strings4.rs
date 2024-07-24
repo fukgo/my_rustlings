@@ -1,8 +1,12 @@
 // Calls of this function should be replaced with calls of `string_slice` or `string`.
-fn placeholder() {}
+fn placeholder() {
+
+}
+    
 
 fn string_slice(arg: &str) {
     println!("{arg}");
+
 }
 
 fn string(arg: String) {
@@ -13,25 +17,25 @@ fn string(arg: String) {
 // Your task is to replace `placeholder(…)` with either `string_slice(…)`
 // or `string(…)` depending on what you think each value is.
 fn main() {
-    placeholder("blue");
+    string_slice("blue");
 
-    placeholder("red".to_string());
+    string("red".to_string());
 
-    placeholder(String::from("hi"));
+    string(String::from("hi"));
 
-    placeholder("rust is fun!".to_owned());
+    string("rust is fun!".to_owned());
 
-    placeholder("nice weather".into());
+    string("nice weather".into());
 
-    placeholder(format!("Interpolation {}", "Station"));
+    string(format!("Interpolation {}", "Station"));
 
     // WARNING: This is byte indexing, not character indexing.
     // Character indexing can be done using `s.chars().nth(INDEX)`.
-    placeholder(&String::from("abc")[0..1]);
+    string_slice(&String::from("abc")[0..1]);
+    //.trim() 删除字符串两端的空白字符。这些空白字符包括空格、制表符、换行符等
+    string_slice("  hello there ".trim());
 
-    placeholder("  hello there ".trim());
+    string("Happy Monday!".replace("Mon", "Tues"));
 
-    placeholder("Happy Monday!".replace("Mon", "Tues"));
-
-    placeholder("mY sHiFt KeY iS sTiCkY".to_lowercase());
+    string("mY sHiFt KeY iS sTiCkY".to_lowercase());
 }
