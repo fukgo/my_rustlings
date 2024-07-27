@@ -10,6 +10,19 @@ fn factorial(num: u64) -> u64 {
     // - additional variables
     // For an extra challenge, don't use:
     // - recursion
+
+    //(1..=num).product()
+    //(1..=num) 创建了一个从 1 到 num（包含 num）的范围，然后 product() 方法计算了这个范围内所有数字的乘积，也就是 num 的阶乘。
+    if num == 0 {
+        1
+    } else {
+        let mut result:u64=1;
+        for i in 1..num+1{
+            result = result * i;
+        }
+        return result;
+
+    }
 }
 
 fn main() {

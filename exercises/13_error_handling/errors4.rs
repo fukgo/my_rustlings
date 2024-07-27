@@ -10,15 +10,15 @@ enum CreationError {
 struct PositiveNonzeroInteger(u64);
 
 impl PositiveNonzeroInteger {
-    fn new(value: i64) -> Result<Self, CreationError> {
+    fn new(value: i64) -> Result<PositiveNonzeroInteger, CreationError> {
         // TODO: This function shouldn't always return an `Ok`.
         if value < 0 {
-            Err(CreationError::Negative)
+            return Err(CreationError::Negative);
         } else if value == 0 {
-            Err(CreationError::Zero)
-        } else {
-            Ok(PositiveNonzeroInteger(value as u64))
+            return Err(CreationError::Zero);
         }
+        Ok(PositiveNonzeroInteger(value as u64))
+
     }
 }
 

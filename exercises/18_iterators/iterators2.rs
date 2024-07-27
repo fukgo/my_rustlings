@@ -1,13 +1,16 @@
 // In this exercise, you'll learn some of the unique advantages that iterators
 // can offer.
-
+// to_uppercase函数：返回字符串的大写字母
+// collect函数：将一个集合的内容移动到另一个集合的主要方式
+// as_str() 可以显式提取包含该字符串的字符串片段
+// next函数会让迭代器指向下一个对象
 // TODO: Complete the `capitalize_first` function.
 // "hello" -> "Hello"
 fn capitalize_first(input: &str) -> String {
     let mut chars = input.chars();
     match chars.next() {
         None => String::new(),
-        Some(first) => todo!(),
+        Some(first) => first.to_uppercase().collect::<String>()+chars.as_str(),
     }
 }
 
@@ -15,14 +18,22 @@ fn capitalize_first(input: &str) -> String {
 // Return a vector of strings.
 // ["hello", "world"] -> ["Hello", "World"]
 fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
-    // ???
+    let mut v:Vec<String> = Vec::new();
+    for word in words {
+        v.push(capitalize_first(word));
+    }
+    v
 }
 
 // TODO: Apply the `capitalize_first` function again to a slice of string
 // slices. Return a single string.
 // ["hello", " ", "world"] -> "Hello World"
 fn capitalize_words_string(words: &[&str]) -> String {
-    // ???
+    let mut v:Vec<String> = Vec::new();
+    for word in words {
+        v.push(capitalize_first(word));
+    }
+    v.join("")
 }
 
 fn main() {
