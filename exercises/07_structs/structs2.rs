@@ -11,13 +11,13 @@ struct Order {
 
 fn create_order_template() -> Order {
     Order {
-        name: String::from("Bob"),
-        year: 2019,
-        made_by_phone: false,
-        made_by_mobile: false,
-        made_by_email: true,
-        item_number: 123,
-        count: 0,
+        name: String::from("Hacker in Rust"),
+        year: 2024,
+        made_by_email:false,
+        made_by_mobile:false,
+        made_by_phone:false,
+        item_number:123,
+        count:1,
     }
 }
 
@@ -42,7 +42,7 @@ mod tests {
             made_by_mobile:false,
             made_by_phone:false,
             item_number:123,
-            count:0,
+            count:1,
 
         };
 

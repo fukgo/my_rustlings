@@ -27,7 +27,7 @@ impl Package {
     fn is_international(&self) ->bool{
         // TODO: Read the tests that use this method to find out when a package
         // is considered international.
-        self.sender_country==self.recipient_country
+        self.sender_country!=self.recipient_country
     }
 
     // TODO: Add the correct return type to the function signature.
@@ -48,7 +48,7 @@ mod tests {
     #[test]
     #[should_panic]
     fn fail_creating_weightless_package() {
-        let sender_country = String::from("Spain");
+        let sender_country: String = String::from("Spain");
         let recipient_country = String::from("Austria");
 
         Package::new(sender_country, recipient_country, 5);
@@ -68,6 +68,7 @@ mod tests {
     fn create_local_package() {
         let sender_country = String::from("Canada");
         let recipient_country = sender_country.clone();
+        println!("{},{}",sender_country,recipient_country);
 
         let package = Package::new(sender_country, recipient_country, 1200);
 

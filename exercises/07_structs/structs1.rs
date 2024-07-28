@@ -25,9 +25,9 @@ mod tests {
         // TODO: Instantiate a regular struct.
         // let green =
         let green = ColorRegularStruct{
-            red:1,
-            green:1,
-            blue:1,
+            red:0,
+            green:255,
+            blue:0,
         };
 
         assert_eq!(green.red, 0);
@@ -37,7 +37,7 @@ mod tests {
 
     #[test]
     fn tuple_structs() {
-        let green = ColorTupleStruct(1,2,3);
+        let green = ColorTupleStruct(0,255,0);
 
         assert_eq!(green.0, 0);
         assert_eq!(green.1, 255);
@@ -48,7 +48,7 @@ mod tests {
     fn unit_structs() {
         // TODO: Instantiate a unit struct.
         // let unit_struct =
-        let unit_struct = {};
+        let unit_struct = {UnitStruct};
         let message = format!("{unit_struct:?}s are fun!");
 
         assert_eq!(message, "UnitStructs are fun!");

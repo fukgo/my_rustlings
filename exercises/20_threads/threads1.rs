@@ -9,6 +9,7 @@ use std::{
 };
 
 fn main() {
+    //创建了10个线程，每个线程睡眠250毫秒，然后打印自己的编号和耗时
     let mut handles = Vec::new();
     for i in 0..10 {
         let handle = thread::spawn(move || {
@@ -19,11 +20,14 @@ fn main() {
         });
         handles.push(handle);
     }
-
+    
     let mut results = Vec::new();
     for handle in handles {
         // TODO: Collect the results of all threads into the `results` vector.
         // Use the `JoinHandle` struct which is returned by `thread::spawn`.
+        //JoinHandle 的 join 方法用于等待线程结束并获取其结果
+        let result = handle.join().unwrap();
+        results.push(result)
     }
 
     if results.len() != 10 {
